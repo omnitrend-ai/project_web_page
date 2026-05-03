@@ -6,6 +6,14 @@
   <title>OmniTrend — Trend Intelligence Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <script>
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  window.location.hash = '';
+  window.scrollTo(0, 0);
+</script>
   <style>
     :root {
       --bg: #06060a;
@@ -22,7 +30,7 @@
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: auto; }
 
     body {
       background: var(--bg);
@@ -354,6 +362,95 @@
     .report-arrow { width: 28px; height: 28px; border-radius: 6px; background: rgba(124,92,252,0.1); display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; }
     .report-card:hover .report-arrow { background: var(--accent); transform: translateX(4px); }
 
+    .hero-trend-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.75;
+}
+
+.trend-svg {
+  position: absolute;
+  width: 120vw;
+  height: 480px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+}
+ 
+  .trend-line {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: miter;
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 2400;
+
+  opacity: 0.9;
+
+  animation: drawTrend 3.4s cubic-bezier(.22,1,.36,1) forwards;
+
+  filter:
+    drop-shadow(0 0 18px rgba(124,92,252,0.18))
+    drop-shadow(0 0 40px rgba(0,212,170,0.08));
+}
+
+.line-1 {
+
+  stroke: rgba(0,212,170,0.88);
+
+  stroke-width: 3.5;
+
+  animation-delay: 0.2s;
+
+}
+
+.line-2 {
+
+  stroke: rgba(124,92,252,0.7);
+
+  stroke-width: 2.8;
+
+  animation-delay: 0.55s;
+
+}
+
+.line-3 {
+
+  stroke: rgba(90,140,255,0.35);
+
+  stroke-width: 2;
+
+  animation-delay: 0.9s;
+
+}
+@keyframes drawTrend {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes popDot {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero h1,
+.hero-sub,
+.hero-stats,
+.hero-badge,
+.hero > img {
+  position: relative;
+  z-index: 2;
+}
     /* LOGS */
 .logs {
   padding: 5rem 4rem 6rem;
@@ -608,6 +705,24 @@
   <div class="hero-orb orb1"></div>
   <div class="hero-orb orb2"></div>
   <div class="hero-orb orb3"></div>
+  <div class="hero-trend-lines">
+   <svg class="trend-svg" viewBox="0 0 1400 500" preserveAspectRatio="none">
+  <polyline
+    class="trend-line line-1"
+    points="-180,390 40,350 180,365 340,310 480,330 620,250 760,275 920,190 1080,210 1240,125 1580,60"
+  />
+
+  <polyline
+    class="trend-line line-2"
+    points="-220,430 0,410 160,380 300,395 460,350 610,370 780,305 930,325 1110,260 1280,285 1620,210"
+  />
+
+  <polyline
+    class="trend-line line-3"
+    points="-250,250 -40,235 120,210 300,225 470,190 640,205 820,165 1000,180 1160,140 1320,155 1650,95"
+  />
+</svg>
+</div>
 
   <div class="hero-badge">
     <span class="ping"></span>
@@ -961,6 +1076,26 @@
 </footer>
 
 <script>
+   // Force page to start at hero/top after reload
+function forceTop() {
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+}
+
+window.addEventListener('pageshow', () => {
+  forceTop();
+  setTimeout(forceTop, 50);
+  setTimeout(forceTop, 250);
+  setTimeout(forceTop, 700);
+});
+
+window.addEventListener('load', () => {
+  forceTop();
+  setTimeout(forceTop, 50);
+  setTimeout(forceTop, 250);
+  setTimeout(forceTop, 700);
+});
   // Custom cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
