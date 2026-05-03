@@ -82,10 +82,24 @@
     }
     nav.scrolled { padding: 0.8rem 4rem; }
     .nav-brand {
-      display: flex; align-items: center; gap: 0.6rem;
-      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
-      letter-spacing: -0.02em; text-decoration: none; color: var(--text);
-    }
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.nav-logo-mark {
+  height: 28px;
+  width: 28px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(124,92,252,0.35));
+}
     .nav-brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block; animation: pulse 2s infinite; }
     .nav-links { display: flex; gap: 2rem; align-items: center; }
     .nav-links a {
@@ -107,14 +121,66 @@
       cursor: none; transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
     }
     .nav-cta:hover { background: #9575ff; transform: translateY(-1px); box-shadow: 0 8px 30px var(--glow); }
+ .hero-title-row {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 2vw, 1.8rem);
+  animation: fadeUp 0.8s 0.2s ease both;
+}
 
+.hero-logo-mark {
+  width: clamp(58px, 7vw, 92px);
+  height: clamp(58px, 7vw, 92px);
+  object-fit: contain;
+  flex-shrink: 0;
+
+  opacity: 0;
+
+  filter:
+    drop-shadow(0 0 18px rgba(124,92,252,0.45))
+    drop-shadow(0 0 34px rgba(0,212,170,0.18));
+
+  animation:
+    logoFloatIn 0.9s ease forwards,
+    logoPulse 4s ease-in-out infinite 1s;
+}
+
+@keyframes logoFloatIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.92);
+  }
+  to {
+    opacity: 0.92;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.92;
+  }
+  50% {
+    transform: translateY(-5px) scale(1.035);
+    opacity: 1;
+  }
+}
     /* HERO */
     .hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; position: relative; overflow: hidden;
-      padding: 6rem 2rem 4rem;
-    }
+  min-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 11rem 2rem 5rem;
+}
     .hero-grid {
       position: absolute; inset: 0;
       background-image:
@@ -167,9 +233,10 @@
     }
     .hero-sub {
       font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: var(--muted); max-width: 520px; line-height: 1.7;
+      color: rgba(240, 238, 255, 0.78);
       margin: 1.5rem auto 2.5rem;
       animation: fadeUp 0.8s 0.4s ease both;
+      text-shadow: 0 0 18px rgba(124,92,252,0.12);
     }
     .hero-actions {
       display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
@@ -192,7 +259,9 @@
     .btn-ghost:hover { border-color: var(--accent); background: rgba(124,92,252,0.08); }
 
     .hero-stats {
-      display: flex; gap: 3rem; margin-top: 5rem;
+  display: flex;
+  gap: 3rem;
+  margin-top: 3rem;
       animation: fadeUp 0.8s 0.8s ease both;
       position: relative;
     }
@@ -442,12 +511,18 @@
     transform: scale(1);
   }
 }
+ 
 
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-title-row,
 .hero h1,
 .hero-sub,
 .hero-stats,
-.hero-badge,
-.hero > img {
+.hero-badge {
   position: relative;
   z-index: 2;
 }
@@ -684,8 +759,8 @@
 
 <nav id="navbar">
   <a class="nav-brand" href="#home">
-  <img src="assets/logo_small.png" alt="OmniTrend" style="height:32px; filter:invert(1);">
-  OmniTrend
+  <img class="nav-logo-mark" src="assets/logo.png" alt="OmniTrend logo">
+  <span>OmniTrend</span>
 </a>
   <div class="nav-links">
     <a href="#overview">Overview</a>
@@ -723,15 +798,15 @@
   />
 </svg>
 </div>
-
   <div class="hero-badge">
     <span class="ping"></span>
     CS491/492 — Bilkent University 2026
   </div>
 
-  <img src="assets/logo_small.png" alt="OmniTrend" style="height:80px; filter:invert(1); margin-bottom:1.5rem; opacity:0.9; animation: fadeUp 0.8s 0.1s ease both;">
-
+  <div class="hero-title-row">
+  <img class="hero-logo-mark" src="assets/logo.png" alt="OmniTrend logo">
   <h1>OmniTrend</h1>
+</div>
   <p class="hero-sub">The ultimate AI-powered trend analyzer for everything you find on the internet: real-time, traceable, and transparent.</p>
   <div class="hero-stats">
     <div class="hero-stat">
