@@ -132,8 +132,8 @@
 }
 
 .hero-logo-mark {
-  width: clamp(58px, 7vw, 92px);
-  height: clamp(58px, 7vw, 92px);
+  width: clamp(30px, 4.5vw, 52px);
+  height: clamp(30px, 4.5vw, 52px);
   object-fit: contain;
   flex-shrink: 0;
 
@@ -223,14 +223,20 @@
     @keyframes ping { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(2.5); opacity: 0; } }
 
     .hero h1 {
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: clamp(3.5rem, 10vw, 8rem);
-      letter-spacing: -0.04em; line-height: 0.95;
-      background: linear-gradient(135deg, var(--text) 0%, rgba(124,92,252,0.9) 50%, var(--accent2) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: fadeUp 0.8s 0.2s ease both;
-    }
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.7rem, 8.2vw, 6.2rem);
+  letter-spacing: -0.075em;
+  line-height: 0.95;
+  max-width: min(720px, 82vw);
+  white-space: nowrap;
+  overflow: visible;
+  background: linear-gradient(135deg, var(--text) 0%, rgba(124,92,252,0.9) 50%, var(--accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
     .hero-sub {
       font-size: clamp(1rem, 2.5vw, 1.25rem);
       color: rgba(240, 238, 255, 0.78);
@@ -799,13 +805,11 @@
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 10.8vw, 2.85rem) !important;
+  font-size: clamp(2.05rem, 9.7vw, 2.75rem) !important;
   line-height: 0.95 !important;
   white-space: nowrap !important;
-  max-width: calc(92vw - 34px) !important;
-  transform: none !important;
-  letter-spacing: -0.075em !important;
-  text-align: center !important;
+  max-width: calc(100vw - 4.5rem) !important;
+  letter-spacing: -0.08em !important;
 }
 
   .hero-badge {
@@ -1139,8 +1143,8 @@
   <p class="hero-sub">The ultimate AI-powered trend analyzer for everything you find on the internet: real-time, traceable, and transparent.</p>
   <div class="hero-stats">
     <div class="hero-stat">
-      <div class="val">5</div>
-      <div class="label">Team Members</div>
+      <div class="val">5261</div>
+      <div class="label">News Sources</div>
     </div>
     <div class="hero-stat">
       <div class="val">10+</div>
@@ -1348,8 +1352,8 @@
       <span>Final Report</span>
       <div class="report-arrow">→</div>
     </a>
-    <a class="report-card reveal" href="#" target="_blank" rel="noopener" style="opacity:0.5;pointer-events:none;cursor:default;">
-      <span>CS 492 Final Presentation <span style="font-size:0.7rem;color:var(--muted);margin-left:0.5rem;">Coming Soon</span></span>
+    <a class="report-card reveal" href=https://drive.google.com/file/d/1w7kbu3W3kPCogteqjeru1N5dWYDTOgba/view?usp=sharing">
+      <span>CS 492 Final Presentation</span>
       <div class="report-arrow">→</div>
     </a>
   </div>
