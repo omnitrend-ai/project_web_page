@@ -121,13 +121,16 @@
       cursor: none; transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
     }
     .nav-cta:hover { background: #9575ff; transform: translateY(-1px); box-shadow: 0 8px 30px var(--glow); }
- .hero-title-row {
+.hero-title-row {
   position: relative;
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(1rem, 2vw, 1.8rem);
+  gap: clamp(0.45rem, 1.2vw, 1.2rem);
+  width: 100%;
+  max-width: 96vw;
+  padding: 0 1rem;
   animation: fadeUp 0.8s 0.2s ease both;
 }
 
@@ -228,7 +231,7 @@
   font-size: clamp(2.7rem, 8.2vw, 6.2rem);
   letter-spacing: -0.075em;
   line-height: 0.95;
-  max-width: min(720px, 82vw);
+  max-width: none;
   white-space: nowrap;
   overflow: visible;
   background: linear-gradient(135deg, var(--text) 0%, rgba(124,92,252,0.9) 50%, var(--accent2) 100%);
