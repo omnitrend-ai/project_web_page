@@ -6,14 +6,7 @@
   <title>OmniTrend — Trend Intelligence Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <script>
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
-
-  window.location.hash = '';
-  window.scrollTo(0, 0);
-</script>
+   
   <style>
     :root {
       --bg: #06060a;
@@ -1969,27 +1962,27 @@ section::before {
 .team {
   padding-top: 7rem !important;
 }
-/* SAFARI MOBILE SCROLL FIX — KEEP ABSOLUTELY LAST */
-html {
-  background: #050509 !important;
-  height: auto !important;
-  min-height: 100% !important;
-  overflow-y: auto !important;
+ /* MOBILE SCROLL FIX — KEEP ABSOLUTELY LAST */
+html,
+body {
+  min-height: 100%;
   overflow-x: hidden !important;
-  -webkit-overflow-scrolling: touch !important;
+  overflow-y: auto !important;
+  background-color: #050509 !important;
 }
 
 body {
-  background-color: #050509 !important;
-  min-height: 100% !important;
-  overflow-y: visible !important;
-  overflow-x: hidden !important;
-  overscroll-behavior-y: auto !important;
-  touch-action: pan-y !important;
+  touch-action: auto !important;
+  -webkit-overflow-scrolling: touch;
 }
 
-@supports (-webkit-touch-callout: none) {
-  body::after {
+@media (max-width: 768px) {
+  body {
+    cursor: auto !important;
+  }
+
+  .cursor,
+  .cursor-ring {
     display: none !important;
   }
 }
@@ -2416,25 +2409,7 @@ body {
 
 <script>
    // Force page to start at hero/top after reload
-function forceTop() {
-  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
-}
-
-window.addEventListener('pageshow', () => {
-  forceTop();
-  setTimeout(forceTop, 50);
-  setTimeout(forceTop, 250);
-  setTimeout(forceTop, 700);
-});
-
-window.addEventListener('load', () => {
-  forceTop();
-  setTimeout(forceTop, 50);
-  setTimeout(forceTop, 250);
-  setTimeout(forceTop, 700);
-});
+ 
   // Custom cursor
   // Custom cursor
 const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
