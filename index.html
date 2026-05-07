@@ -1432,6 +1432,101 @@
     cursor: pointer;
   }
 }
+/* FINAL READABILITY + FOOTER LOGO POLISH */
+.footer-logo-mark {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(124,92,252,0.35));
+}
+
+/* make social icons clearer */
+.social-btn {
+  color: var(--text) !important;
+}
+
+.social-btn[title="LinkedIn"] {
+  background: rgba(10,102,194,0.18) !important;
+  border-color: rgba(10,102,194,0.45) !important;
+  color: #7ec8ff !important;
+}
+
+.social-btn[title="GitHub"] {
+  background: rgba(255,255,255,0.09) !important;
+  border-color: rgba(255,255,255,0.22) !important;
+  color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+  .section-label {
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    color: var(--accent2) !important;
+  }
+
+  .overview-header p,
+  .reports-header p,
+  .video-header p,
+  .contact-inner p {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+    color: rgba(240,238,255,0.75) !important;
+  }
+
+  .team-card h3 {
+    font-size: 0.9rem !important;
+    line-height: 1.2 !important;
+    font-weight: 800 !important;
+  }
+
+  .team-card .role {
+    font-size: 0.62rem !important;
+    font-weight: 800 !important;
+    color: rgba(240,238,255,0.65) !important;
+  }
+
+  .supervisor-card .sup-role {
+    font-size: 0.64rem !important;
+    font-weight: 800 !important;
+    color: var(--accent2) !important;
+  }
+
+  .supervisor-card h3 {
+    font-size: 0.86rem !important;
+    font-weight: 800 !important;
+  }
+
+  .video-header p,
+  .video + p,
+  #video > p {
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+  }
+
+  .contact-email {
+    font-size: 0.9rem !important;
+    font-weight: 800 !important;
+  }
+
+  .footer-brand {
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+  }
+
+  .footer-logo-mark {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .footer-center,
+  .footer-note {
+    font-size: 0.86rem !important;
+    line-height: 1.4 !important;
+    font-weight: 500 !important;
+    color: rgba(240,238,255,0.68) !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -1846,7 +1941,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">
-    <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;"></span>
+    <img class="footer-logo-mark" src="assets/logo.png" alt="OmniTrend logo">
     OmniTrend
   </div>
   <div class="footer-center">CS491/492 — Bilkent University 2026</div>
