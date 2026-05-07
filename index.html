@@ -1527,6 +1527,124 @@
     color: rgba(240,238,255,0.68) !important;
   }
 }
+/* FINAL COLOR + POLISH PASS — KEEP THIS ABSOLUTELY LAST */
+:root {
+  --accent4: #4f8cff;
+}
+
+/* richer section backgrounds */
+.team {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(124,92,252,0.08), transparent 32%),
+    linear-gradient(to bottom, rgba(124,92,252,0.025), transparent);
+}
+
+.supervisor {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(0,212,170,0.07), transparent 30%),
+    rgba(124,92,252,0.025);
+}
+
+.reports {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(79,140,255,0.07), transparent 32%),
+    linear-gradient(to bottom, rgba(0,212,170,0.02), transparent);
+}
+
+.logs {
+  background:
+    radial-gradient(circle at 80% 10%, rgba(0,212,170,0.07), transparent 30%),
+    rgba(0,212,170,0.025);
+}
+
+.contact {
+  background:
+    radial-gradient(circle at 50% 40%, rgba(124,92,252,0.08), transparent 38%);
+}
+
+/* premium card borders */
+.feature-card,
+.team-card,
+.supervisor-card,
+.report-card,
+.log-card,
+.team-log-card,
+.contact-inner,
+.video-container {
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    linear-gradient(135deg, rgba(124,92,252,0.38), rgba(0,212,170,0.22), rgba(79,140,255,0.18)) border-box !important;
+  border: 1px solid transparent !important;
+}
+
+/* nicer hover glow */
+.feature-card:hover,
+.team-card:hover,
+.supervisor-card:hover,
+.report-card:hover,
+.log-card:hover,
+.team-log-card:hover {
+  box-shadow:
+    0 18px 55px rgba(0,0,0,0.38),
+    0 0 34px rgba(124,92,252,0.14),
+    0 0 22px rgba(0,212,170,0.08) !important;
+}
+
+/* colored feature icons */
+.feature-card:nth-child(1) .feature-icon { background: rgba(124,92,252,0.16); border-color: rgba(124,92,252,0.35); }
+.feature-card:nth-child(2) .feature-icon { background: rgba(0,212,170,0.14); border-color: rgba(0,212,170,0.32); }
+.feature-card:nth-child(3) .feature-icon { background: rgba(255,107,107,0.14); border-color: rgba(255,107,107,0.32); }
+.feature-card:nth-child(4) .feature-icon { background: rgba(79,140,255,0.14); border-color: rgba(79,140,255,0.32); }
+.feature-card:nth-child(5) .feature-icon { background: rgba(247,151,30,0.14); border-color: rgba(247,151,30,0.32); }
+.feature-card:nth-child(6) .feature-icon { background: rgba(233,111,247,0.14); border-color: rgba(233,111,247,0.32); }
+
+/* team card accent lines */
+.team-card:nth-child(1)::after { background: linear-gradient(90deg, #7c5cfc, #4f8cff); }
+.team-card:nth-child(2)::after { background: linear-gradient(90deg, #ff6b6b, #7c5cfc); }
+.team-card:nth-child(3)::after { background: linear-gradient(90deg, #00d4aa, #4f8cff); }
+.team-card:nth-child(4)::after { background: linear-gradient(90deg, #f7971e, #ff6b6b); }
+.team-card:nth-child(5)::after { background: linear-gradient(90deg, #e96ff7, #7c5cfc); }
+
+/* brighter labels */
+.section-label {
+  color: var(--accent2) !important;
+}
+
+.section-label::before {
+  background: linear-gradient(90deg, var(--accent), var(--accent2)) !important;
+}
+
+/* footer polish */
+footer {
+  background:
+    linear-gradient(to top, rgba(124,92,252,0.07), transparent),
+    rgba(6,6,10,0.85);
+}
+
+.footer-brand {
+  color: white;
+  text-shadow: 0 0 18px rgba(124,92,252,0.35);
+}
+
+/* mobile: keep color but prevent clutter */
+@media (max-width: 768px) {
+  .feature-card,
+  .team-card,
+  .supervisor-card,
+  .report-card,
+  .log-card,
+  .team-log-card {
+    box-shadow: 0 8px 26px rgba(0,0,0,0.22) !important;
+  }
+
+  .feature-icon {
+    box-shadow: 0 0 18px rgba(124,92,252,0.16);
+  }
+
+  .section-label::before {
+    width: 18px !important;
+  }
+}
   </style>
 </head>
 <body>
