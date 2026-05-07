@@ -93,8 +93,7 @@
   display: block;
   filter: drop-shadow(0 0 8px rgba(124,92,252,0.35));
 }
-    .nav-brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block; animation: pulse 2s infinite; }
-    .nav-links { display: flex; gap: 2rem; align-items: center; }
+     .nav-links { display: flex; gap: 2rem; align-items: center; }
     .nav-links a {
       color: var(--muted); text-decoration: none; font-size: 0.85rem;
       letter-spacing: 0.06em; text-transform: uppercase;
@@ -198,8 +197,7 @@
     @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
     @keyframes fadeUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: translateY(0); } }
     @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-    @keyframes slideInLeft { from { opacity:0; transform: translateX(-40px); } to { opacity:1; transform: translateX(0); } }
-
+ 
     .hero-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: rgba(124,92,252,0.12); border: 1px solid rgba(124,92,252,0.3);
@@ -239,27 +237,9 @@
       margin: 1.5rem auto 2.5rem;
       animation: fadeUp 0.8s 0.4s ease both;
       text-shadow: 0 0 18px rgba(124,92,252,0.12);
-    }
-    .hero-actions {
-      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-      animation: fadeUp 0.8s 0.6s ease both;
-    }
-    .btn-primary {
-      background: var(--accent); color: white; text-decoration: none;
-      padding: 0.85rem 2rem; border-radius: 6px;
-      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem;
-      letter-spacing: 0.03em; transition: all 0.3s;
-      box-shadow: 0 0 0 0 var(--glow);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px var(--glow), 0 0 0 4px rgba(124,92,252,0.15); }
-    .btn-ghost {
-      border: 1px solid var(--border); color: var(--text); text-decoration: none;
-      padding: 0.85rem 2rem; border-radius: 6px;
-      font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.9rem;
-      transition: all 0.3s; background: transparent;
-    }
-    .btn-ghost:hover { border-color: var(--accent); background: rgba(124,92,252,0.08); }
-
+    } 
+    
+    
     .hero-stats {
   display: flex;
   gap: 3rem;
@@ -275,17 +255,7 @@
       background-clip: text;
     }
     .hero-stat .label { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.2rem; }
-
-    /* SCROLL INDICATOR */
-    .scroll-hint {
-      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      color: var(--muted); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
-      animation: fadeIn 1s 1.5s both;
-    }
-    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--accent), transparent); animation: scrollAnim 2s ease-in-out infinite; }
-    @keyframes scrollAnim { 0%,100% { transform: scaleY(1); opacity:1; } 50% { transform: scaleY(0.5); opacity:0.3; } }
-
+ 
     /* SECTION BASE */
     section { position: relative; z-index: 1; }
     .section-label {
@@ -306,9 +276,7 @@
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal-left.visible { opacity: 1; transform: translateX(0); }
-
+ 
     /* OVERVIEW */
     .overview {
       padding: 8rem 4rem;
@@ -503,16 +471,6 @@
   }
 }
 
-@keyframes popDot {
-  from {
-    opacity: 0;
-    transform: scale(0.2);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
  
 
 .nav-brand {
@@ -684,18 +642,14 @@
       display: flex; align-items: center; justify-content: center;
       position: relative;
     }
-    .video-placeholder {
-      display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
-      color: var(--muted);
-    }
+    
     .video-play-btn {
       width: 80px; height: 80px; border-radius: 50%;
       background: rgba(124,92,252,0.15); border: 2px solid rgba(124,92,252,0.3);
       display: flex; align-items: center; justify-content: center;
       font-size: 1.8rem; transition: all 0.3s;
     }
-    .video-placeholder p { font-size: 0.9rem; letter-spacing: 0.05em; }
-
+ 
     /* CONTACT */
     .contact { padding: 8rem 4rem; }
     .contact-inner {
@@ -735,10 +689,6 @@
     .footer-brand { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; }
     .footer-center { color: var(--muted); font-size: 0.8rem; }
     .footer-note { color: var(--muted); font-size: 0.75rem; text-align: right; }
-
-    /* DIVIDER */
-    .divider { max-width: 1100px; margin: 0 auto; height: 1px; background: var(--border); }
- 
  
 /* FINAL MOBILE FIX — KEEP THIS AS THE LAST CSS BLOCK */
 @media (max-width: 768px) {
@@ -1986,6 +1936,25 @@ body {
     display: none !important;
   }
 }
+/* FIX MOBILE GAPS: OVERVIEW → TEAM */
+@media (max-width: 768px) {
+  .overview {
+    padding-top: 3.2rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .overview-header {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .team {
+    padding-top: 3rem !important;
+  }
+
+  .team-header {
+    margin-bottom: 1.6rem !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -2408,10 +2377,7 @@ body {
 </footer>
 
 <script>
-   // Force page to start at hero/top after reload
  
-  // Custom cursor
-  // Custom cursor
 const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
 
 if (!isTouchDevice) {
