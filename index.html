@@ -1969,25 +1969,33 @@ section::before {
 .team {
   padding-top: 7rem !important;
 }
-/* KILL WHITE OVERSCROLL FLASH — KEEP ABSOLUTELY LAST */
-html {
-  background: #050509 !important;
-  overscroll-behavior: none !important;
+/* SAFE MOBILE SCROLL FIX — KEEP ABSOLUTELY LAST */
+html,
+body {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100% !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  background-color: #050509 !important;
 }
 
 body {
-  min-height: 100vh !important;
-  background-color: #050509 !important;
-  overscroll-behavior: none !important;
+  position: relative !important;
+  touch-action: pan-y !important;
+  -webkit-overflow-scrolling: touch !important;
 }
 
-@supports (-webkit-touch-callout: none) {
-  body::after {
-    content: "";
-    position: fixed;
-    inset: -80px 0;
-    z-index: -1;
-    background: #050509;
+/* prevent white flash without blocking scroll */
+html {
+  background: #050509 !important;
+}
+
+/* only desktop gets overscroll lock */
+@media (min-width: 769px) {
+  html,
+  body {
+    overscroll-behavior: none !important;
   }
 }
   </style>
