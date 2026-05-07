@@ -1301,6 +1301,137 @@
     font-size: 0.7rem !important;
   }
 }
+/* MOBILE TEXT READABILITY — LOGS + REPORTS */
+@media (max-width: 768px) {
+
+  /* REPORTS */
+  .report-card {
+    min-height: 74px !important;
+    padding: 0.9rem 0.8rem !important;
+  }
+
+  .report-card span {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+    font-weight: 600 !important;
+  }
+
+  /* TEAM LOGBOOK CARDS */
+  .team-log-card {
+    min-height: 92px !important;
+    padding: 0.9rem !important;
+  }
+
+  .team-log-card span:first-child {
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .team-log-badge {
+    font-size: 0.56rem !important;
+    font-weight: 700 !important;
+  }
+
+  /* INDIVIDUAL LOGS */
+  .log-person span {
+    font-size: 0.82rem !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+  }
+
+  .log-btn {
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    padding: 0.55rem 0.45rem !important;
+  }
+}
+
+/* EXTRA SMALL PHONES */
+@media (max-width: 360px) {
+
+  .report-card span {
+    font-size: 0.72rem !important;
+  }
+
+  .team-log-card span:first-child {
+    font-size: 0.74rem !important;
+  }
+
+  .log-person span {
+    font-size: 0.76rem !important;
+  }
+
+  .log-btn {
+    font-size: 0.62rem !important;
+  }
+}
+/* MOBILE MENU */
+.mobile-menu-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  nav {
+    justify-content: space-between !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(124,92,252,0.12);
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 101;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 58px;
+    left: 1rem;
+    right: 1rem;
+    display: none !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.2rem;
+    padding: 0.8rem;
+    background: rgba(13,13,20,0.96);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  }
+
+  .nav-links.open {
+    display: flex !important;
+  }
+
+  .nav-links a {
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    font-size: 0.78rem !important;
+    font-weight: 700;
+    color: var(--text) !important;
+    background: rgba(124,92,252,0.06);
+  }
+
+  .nav-links a::after {
+    display: none !important;
+  }
+
+  .nav-cta {
+    margin-top: 0.35rem;
+    width: 100%;
+    padding: 0.85rem 1rem !important;
+    cursor: pointer;
+  }
+}
   </style>
 </head>
 <body>
@@ -1310,10 +1441,15 @@
 
 <nav id="navbar">
   <a class="nav-brand" href="#home">
-  <img class="nav-logo-mark" src="assets/logo.png" alt="OmniTrend logo">
-  <span>OmniTrend</span>
-</a>
-  <div class="nav-links">
+    <img class="nav-logo-mark" src="assets/logo.png" alt="OmniTrend logo">
+    <span>OmniTrend</span>
+  </a>
+
+  <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+    ☰
+  </button>
+
+  <div class="nav-links" id="navLinks">
     <a href="#overview">Overview</a>
     <a href="#supervisor">Supervisors</a>
     <a href="#team">Team</a>
@@ -1796,6 +1932,20 @@ document.querySelectorAll('.overview-grid, .team-grid, .reports-grid, .logs-grid
       card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
     });
   });
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navLinks = document.getElementById('navLinks');
+
+mobileMenuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  mobileMenuBtn.textContent = navLinks.classList.contains('open') ? '×' : '☰';
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    mobileMenuBtn.textContent = '☰';
+  });
+});
 </script>
 </body>
 </html>
